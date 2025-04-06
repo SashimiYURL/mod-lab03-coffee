@@ -1,5 +1,6 @@
-#ifndef AUTOMATA_H
-#define AUTOMATA_H
+//Copyright 2022 UNN-IASR
+#ifndef INCLUDE_AUTOMATA_H
+#define INCLUDE_AUTOMATA_H
 #include <vector>
 #include <string>
 

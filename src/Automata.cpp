@@ -1,15 +1,13 @@
+//Copyright 2022 UNN-IASR
 #include "Automata.h"
-
 #include <iostream>
 #include <string>
-
 
 void Automata::on() {
     if (state == OFF) {
         state = WAIT;
         std::cout << "The machine is turned on. Waiting for action." << std::endl;
-    }
-    else {
+    } else {
         std::cout << "The machine is already on." << std::endl;
     }
 }
@@ -19,8 +17,7 @@ void Automata::off() {
         state = OFF;
         cash = 0;
         std::cout << "The machine is off." << std::endl;
-    }
-    else {
+    } else {
         std::cout << "Can not turn OFF the automata in this state!"<< std::endl;
     }
     
@@ -31,8 +28,7 @@ void Automata::coin(int amount) {
         cash += amount;
         state = ACCEPT;
         std::cout << "Added " << amount << " rub . Current balance: " << cash << " rub." << std::endl;
-    }
-    else {
+    } else {
         std::cout << "It is not possible to deposit money in the current state." << std::endl;
     }
 }
@@ -42,8 +38,7 @@ void Automata::cancel() {
         std::cout << "The operation has been cancelled. Refund of money: " << cash << " rub." << std::endl;
         cash = 0;
         state = WAIT;
-    }
-    else {
+    } else {
         std::cout << "It is not possible to cancel the operation in the current state." << std::endl;
     }
 }
@@ -59,13 +54,11 @@ void Automata::choice(std::string nameDrink) {
                 std::cout << "Drink selected: " << menu[drinkIndex] << " (" << prices[drinkIndex] << " rub.)" << std::endl;
                 check(drinkIndex);
             }
-        }
-
+        } 
         if (priceDrink == -1) {
             std::cout << "This drink is not on the menu!\n";
         }
-    }
-    else {
+    } else {
         std::cout << "It is not possible to select a drink in the current state." << std::endl;
     }
 }
@@ -78,13 +71,11 @@ void Automata::check(int indexDrink) {
             std::cout << "There are enough funds. The remainder: " << cash << " rub." << std::endl;
             state = COOK;
             cook();
-        }
-        else {
+        } else {
             std::cout << "There are not enough funds. Required: " << selectedPrice-cash << " rub." << std::endl;
             state = ACCEPT;
         }
-    }
-    else {
+    } else {
         std::cout <<"It is impossible to verify the amount in the current state." << std::endl;
     }
 }
@@ -97,8 +88,7 @@ void Automata::cook() {
         }
         std::cout << "\nThe drink is ready!" << std::endl;
         finish();
-    }
-    else {
+    } else {
         std::cout <<"It's impossible to make a drink in the current state." << std::endl;
     }
 }
@@ -107,8 +97,7 @@ void Automata::finish() {
     if (state == COOK) {
         std::cout << "The service is completed. Return of change: " << cash << " rub." << std::endl;
         state = WAIT;
-    }
-    else {
+    } else {
         std::cout << "It is not possible to complete maintenance in the current state." << std::endl;
     }
 }

@@ -1,9 +1,9 @@
+//Copyright 2022 UNN-IASR
 #include "Automata.h"
 #include <iostream>
 
 int main() {
     Automata automata = Automata();
-
     automata.on();
     automata.getMenu();
     automata.coin(40);
