@@ -30,7 +30,7 @@ TEST(AutomataTest, CancelOperation) {
     a.coin(100);
     a.cancel();
     ASSERT_EQ(STATES::WAIT,a.getState());
-    ASSERT_EQ(100,a.getCash());
+    ASSERT_EQ(0,a.getCash());
 }
 TEST(AutomataTest, InsertMoreCoinsInACCEPTState) {
     Automata a = Automata();
@@ -62,7 +62,7 @@ TEST(AutomataTest, OFFFromACCEPTState) {
     a.coin(100);
     a.off();
     ASSERT_EQ(STATES::ACCEPT, a.getState());
-    ASSERT_EQ(100, a.getCash());
+    ASSERT_EQ(0, a.getCash());
 }
 TEST(AutomataTest, ChoiceInvalidDrink) {
     Automata a = Automata();

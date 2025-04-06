@@ -100,7 +100,6 @@ void Automata::cook() {
 void Automata::finish() {
     if (state == COOK) {
         std::cout << "The service is completed. Return of change: " << cash << " rub." << std::endl;
-        cash = 0;
         state = WAIT;
     }
     else {
