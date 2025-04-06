@@ -1,6 +1,6 @@
 //Copyright 2022 UNN-IASR
-#ifndef INCLUDE_AUTOMATA_H
-#define INCLUDE_AUTOMATA_H
+#ifndef INCLUDE_AUTOMATA_H_
+#define INCLUDE_AUTOMATA_H_
 #include <vector>
 #include <string>
 
@@ -11,6 +11,7 @@ enum STATES {
     CHECK,
     COOK
 };
+
 class Automata {
 public:
     void on();
@@ -21,6 +22,7 @@ public:
     STATES getState();
     void getMenu();
     int getCash();
+
     Automata() {
         cash = 0;
         state = OFF;
@@ -37,4 +39,4 @@ private:
     void cook();
     void finish();
 };
-#endif //INCLUDE_AUTOMATA_H
+#endif //INCLUDE_AUTOMATA_H_

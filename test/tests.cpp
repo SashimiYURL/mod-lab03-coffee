@@ -4,33 +4,33 @@
 #include "Automata.h"
 
 TEST(AutomataTest, InitialStateIsOFF) {
-	Automata a = Automata();
-	ASSERT_EQ(STATES::OFF, a.getState());
+    Automata a = Automata();
+    ASSERT_EQ(STATES::OFF, a.getState());
 }
 TEST(AutomataTest, TurnOn) {
-    Automata a=Automata();
+    Automata a = Automata();
     a.on();
-    ASSERT_EQ(STATES::WAIT,a.getState());
+    ASSERT_EQ(STATES::WAIT, a.getState());
 }
 TEST(AutomataTest, StateOff) {
-    Automata a=Automata();
+    Automata a = Automata();
     a.off();
-    ASSERT_EQ(STATES::OFF,a.getState());
+    ASSERT_EQ(STATES::OFF, a.getState());
 }
 TEST(AutomataTest, DepositMoney) {
-    Automata a=Automata();
+    Automata a = Automata();
     a.on();
     a.coin(50);
-    ASSERT_EQ(STATES::ACCEPT,a.getState());
-    ASSERT_EQ(50,a.getCash());
+    ASSERT_EQ(STATES::ACCEPT, a.getState());
+    ASSERT_EQ(50, a.getCash());
 }
 TEST(AutomataTest, CancelOperation) {
-    Automata a=Automata();
+    Automata a = Automata();
     a.on();
     a.coin(100);
     a.cancel();
-    ASSERT_EQ(STATES::WAIT,a.getState());
-    ASSERT_EQ(0,a.getCash());
+    ASSERT_EQ(STATES::WAIT, a.getState());
+    ASSERT_EQ(0, a.getCash());
 }
 TEST(AutomataTest, InsertMoreCoinsInACCEPTState) {
     Automata a = Automata();
@@ -49,7 +49,7 @@ TEST(AutomataTest, ChoiceDrinkHaveMoney) {
     ASSERT_EQ(40, a.getCash());
 }
 TEST(AutomataTest, ChoiceDrinkDontHaveMoney) {
-    Automata a= Automata();
+    Automata a = Automata();
     a.on();
     a.coin(50);
     a.choice("Cappuccino");
@@ -72,7 +72,7 @@ TEST(AutomataTest, ChoiceInvalidDrink) {
     ASSERT_EQ(STATES::ACCEPT, a.getState());
 }
 TEST(AutomataTest, MultipleCoinsSumCorrectly) {
-    Automata a=Automata();
+    Automata a = Automata();
     a.on();
     a.coin(10);
     a.coin(20);
@@ -103,6 +103,7 @@ TEST(AutomataTest, BuyTwoDrinks) {
     ASSERT_EQ(STATES::WAIT, a.getState());
     ASSERT_EQ(0, a.getCash());
 }
+
 
 
 
