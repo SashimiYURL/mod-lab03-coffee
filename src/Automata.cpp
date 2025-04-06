@@ -15,9 +15,15 @@ void Automata::on() {
 }
 
 void Automata::off() {
-    state = OFF;
-    cash = 0;
-    std::cout << "The machine is off." << std::endl;
+    if (state == WAIT) {
+        state = OFF;
+        cash = 0;
+        std::cout << "The machine is off." << std::endl;
+    }
+    else {
+        std::cout << "Can not turn OFF the automata in this state!"<< std::endl;
+    }
+    
 }
 
 void Automata::coin(int amount) {
