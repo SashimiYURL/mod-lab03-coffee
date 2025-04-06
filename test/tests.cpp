@@ -95,8 +95,8 @@ TEST(AutomataTest, CancelInOn) {
 TEST(AutomataTest, BuyTwoDrinks) {
     Automata a = Automata();
     a.on();
-    a.coin(50)
-    a.choice("Latte")
+    a.coin(50);
+    a.choice("Latte");
     ASSERT_EQ(STATES::WAIT, a.getState());
     a.coin(20);
     a.choice("Milk");
